@@ -1,14 +1,15 @@
 <?php
 // Datos de conexión a la base de datos
-$host = 'localhost'; // Dirección de tu servidor MySQL
+$host = 'junction.proxy.rlwy.net'; // Dirección de tu servidor MySQL
 $dbname = 'sistema_trasla'; // Nombre de la base de datos
 $username = 'root'; // Usuario de la base de datos (puede ser diferente según tu configuración)
-$password = ''; // Contraseña de la base de datos (cambia según tu configuración)
+$password = 'QpLtfsGjQiyYgbwBnyivWrQGWkKYdQYf'; // Contraseña de la base de datos (cambia según tu configuración)
+$port = "21246";
 
 // Intentar conectar a la base de datos
 try {
     // Crear una nueva conexión PDO
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;port=$port", $username, $password);
 
     // Configurar el modo de error a excepción para manejar errores de manera adecuada
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

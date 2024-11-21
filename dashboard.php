@@ -42,9 +42,8 @@ $rol = $roles[$id_puesto] ?? '';
 </head>
 <body style="background: white">
     <nav class="navbar navbar-light" style="background-color: #472681;">
-        <div class="container-fluid" >
-            <a class="navbar-brand" href="#">
-            <img src="imagenes/trasla_2.png" alt="" width="110px" height="60px"></a>
+        <div class="container-fluid" style="display: flex; align-items: center; justify-content: center;">
+            <img src="imagenes/trasla_2.png" alt="" width="160px" height="50px"></a>
         </div>
     </nav>
 
@@ -53,7 +52,7 @@ $rol = $roles[$id_puesto] ?? '';
         <div class="row">
         <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="menu_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <img src="imagenes/carro.png" class="card-img-top" alt="Card image">
+                    <img src="imagenes/propietario.png" class="card-img-top" alt="Card image" style>
                     <div class="card-body">
                         <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 150px;">Propietario</h5>
                     </div>
@@ -64,7 +63,7 @@ $rol = $roles[$id_puesto] ?? '';
                 <a class="btn btn-primary" href="menu_carro.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/carro.png" class="card-img-top" alt="Card image">
                     <div class="card-body">
-                        <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 150px; ">Carro</h5>
+                        <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 150px; ">Vehiculo</h5>
                     </div>
                  </a>
             <?php endif; ?>
@@ -116,7 +115,7 @@ $rol = $roles[$id_puesto] ?? '';
 
             <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="#" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <img src="imagenes/viaje.png" class="card-img-top" alt="Card image">
+                    <img src="imagenes/carpeta.png" class="card-img-top" alt="Card image" style="width: 220px; height: 220px; margin: 1.5rem;">
                     <div class="card-body">
                         <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 150px; ">Expedientes</h5>
                     </div>
@@ -125,7 +124,7 @@ $rol = $roles[$id_puesto] ?? '';
 
             <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="menu_usuario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <img src="imagenes/viaje.png" class="card-img-top" alt="Card image">
+                    <img src="imagenes/usuario.png" class="card-img-top" alt="Card image" style="width: 220px; height: 220px; margin: 1.5rem;">
                     <div class="card-body">
                         <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 150px; ">Usuarios</h5>
                     </div>
@@ -134,7 +133,7 @@ $rol = $roles[$id_puesto] ?? '';
         </div>
     </div>
     <a class="btn btn-fixed" style="border-radius: 60%; borde: none;" href="logout.php">
-        <img src="imagenes/cerrar-sesion.png" style="width: 110px;">
+        <img src="imagenes/cerrar-sesion.png" style="width: 85px;">
     </a>
     <!-- Vinculando Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

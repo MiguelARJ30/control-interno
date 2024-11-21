@@ -8,6 +8,17 @@ if (!isset($_SESSION['user'])) {
 }
 
 $usuario = $_SESSION['user']; // Obtener el nombre de usuario desde la sesión
+$id_puesto = $_SESSION['id_puesto'];
+
+$roles = [
+    1 => 'admin',      // id_puesto = 1 corresponde al rol "admin"
+    2 => 'contaduria', // id_puesto = 2 corresponde al rol "contaduria"
+    3 => 'operativa',  // id_puesto = 3 corresponde al rol "operativa"
+    4 => 'juridico',   // id_puesto = 4 corresponde al rol "juridico"
+    5 => 'sistemas'    // id_puesto = 5 corresponde al rol "sistemas"
+];
+
+$rol = $roles[$id_puesto] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -18,25 +29,21 @@ $usuario = $_SESSION['user']; // Obtener el nombre de usuario desde la sesión
     <title>Menu Propietario</title>
     <!-- Vinculando Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Asegura que el botón quede siempre en la parte inferior derecha */
+        .btn-fixed {
+            position: fixed;
+            bottom: 40px;  /* Distancia desde el borde inferior */
+            right: 40px;   /* Distancia desde el borde derecho */
+            z-index: 9999; /* Para que quede encima de otros elementos */
+        }
+    </style>
 </head>
 <body>
     <!-- Header - Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard.php">Menu Propietario</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Bienvenido, <?php echo htmlspecialchars($usuario); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">Menu</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-light" style="background-color: #472681;">
+        <div class="container-fluid" style="display: flex; align-items: center; justify-content: center;">
+            <img src="imagenes/trasla_2.png" alt="" width="160px" height="50px"></a>
         </div>
     </nav>
 
@@ -44,56 +51,52 @@ $usuario = $_SESSION['user']; // Obtener el nombre de usuario desde la sesión
     <div class="container mt-4">
         <div class="row">
             <!-- Tarjetas -->
-            <div class="col-md-4 mb-4">
-                <div class="card" style="width: 300px; height: 350px;">
-                    <!-- <img src="imagenes/agregar_carro.png" class="card-img-top" alt="Card image" style="width: 250px; height: 250px;"> -->
+            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+                <a class="btn btn-primary" href="registro_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
                     <div class="card-body">
-                        <h5 class="card-title">Registrar Propietario</h5>
-                        <a href="registro_propietario.php" class="btn btn-primary">Ver más</a>
+                        <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Registrar</h5>
                     </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 mb-4">
-                <div class="card" style="width: 300px; height: 350px;">
-                    <!-- <img src="imagenes/ver_datos.png" class="card-img-top" alt="Card image" style="width: 250px; height: 250px;"> -->
-                    <div class="card-body">
-                        <h5 class="card-title">Ver Propietarios</h5>
-                        <a href="listado_propietario.php" class="btn btn-primary">Ver más</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 mb-4">
-                <div class="card" style="width: 300px; height: 350px;">
-                    <!-- <img src="imagenes/editar_datos.png" class="card-img-top" alt="Card image" style="width: 250px; height: 250px;"> -->
-                    <div class="card-body">
-                        <h5 class="card-title">Editar Propietario</h5>
-                        <a href="editar_propietario.php" class="btn btn-primary">Ver más</a>
-                    </div>
-                </div>
-            </div>
+                 </a>
+            <?php endif; ?>
 
-            <div class="col-md-4 mb-4">
-                <div class="card" style="width: 300px; height: 350px;">
-                    <!-- <img src="imagenes/habilitar.png" class="card-img-top" alt="Card image" style="width: 250px; height: 250px;"> -->
+            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+                <a class="btn btn-primary" href="listado_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
                     <div class="card-body">
-                        <h5 class="card-title">Eliminar Propietario</h5>
-                        <a href="propietario_eliminado.php" class="btn btn-primary">Ver más</a>
+                        <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Consultar</h5>
                     </div>
-                </div>
-            </div>
+                 </a>
+            <?php endif; ?>
+            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+                <a class="btn btn-primary" href="editar_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Editar</h5>
+                    </div>
+                 </a>
+            <?php endif; ?>
+            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+                <a class="btn btn-primary" href="propietario_eliminado.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Eliminar</h5>
+                    </div>
+                 </a>
+            <?php endif; ?>
 
-            <div class="col-md-4 mb-4">
-                <div class="card" style="width: 300px; height: 350px;">
-                    <!-- <img src="imagenes/habilitar.png" class="card-img-top" alt="Card image" style="width: 250px; height: 250px;"> -->
+            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+                <a class="btn btn-primary" href="activar_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
                     <div class="card-body">
-                        <h5 class="card-title">Habilitar Propietario</h5>
-                        <a href="activar_propietario.php" class="btn btn-primary">Ver más</a>
+                        <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Activar</h5>
                     </div>
-                </div>
-            </div>
+                 </a>
+            <?php endif; ?>
         </div>
+            <a class="btn btn-fixed" style="border-radius: 60%; borde: none;" href="dashboard.php">
+                <img src="imagenes/atras.png" style="width: 85px;">
+            </a>
     </div>
 
     <!-- Vinculando Bootstrap JS -->

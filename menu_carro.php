@@ -21,22 +21,10 @@ $usuario = $_SESSION['user']; // Obtener el nombre de usuario desde la sesión
 </head>
 <body>
     <!-- Header - Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard.php">Menu carro</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Bienvenido, <?php echo htmlspecialchars($usuario); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">Menu</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-light" style="background-color: #472681;">
+        <div class="container-fluid" style="display: flex; align-items: center; justify-content: center;">
+            <a class="navbar-brand" href="#">
+            <img src="imagenes/trasla_2.png" alt="" width="160px" height="50px"></a>
         </div>
     </nav>
 
