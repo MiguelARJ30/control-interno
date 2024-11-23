@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->execute([$usuario, $password_hashed, $id_puesto, $id_trabajador, 1]);
 
             // Redirigir a una página de éxito o login después de registrar
-            header('Location: login.php');
+            header('Location: index.php');
             exit();
         }
     }

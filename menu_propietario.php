@@ -3,7 +3,7 @@ session_start();
 
 // Verifica si el usuario está logueado
 if (!isset($_SESSION['user'])) {
-    header('Location: login.php'); // Redirige al login si no está logueado
+    header('Location: index.php'); // Redirige al login si no está logueado
     exit();
 }
 
@@ -48,12 +48,15 @@ $rol = $roles[$id_puesto] ?? '';
     </nav>
 
     <!-- Contenedor principal para las tarjetas -->
-    <div class="container mt-4">
+    <div class="container mt-4" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <div style="background-color: #472681; color: white; width: 300px; height: 50px; border-radius: 50px; display: flex; align-items: center; justify-content: center;">
+        <p style="font-size: 26px;">PROPIETARIO</p>
+        </div>
         <div class="row">
             <!-- Tarjetas -->
-            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+            <?php if ($rol == 'admin' || $rol == 'contaduria') : ?>
                 <a class="btn btn-primary" href="registro_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
+                    <img src="imagenes/registrar_propietario.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">
                         <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Registrar</h5>
                     </div>
@@ -62,7 +65,7 @@ $rol = $roles[$id_puesto] ?? '';
 
             <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="listado_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
+                    <img src="imagenes/equipo.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">
                         <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Consultar</h5>
                     </div>
@@ -70,7 +73,7 @@ $rol = $roles[$id_puesto] ?? '';
             <?php endif; ?>
             <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="editar_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
+                    <img src="imagenes/editar_datos.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">
                         <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Editar</h5>
                     </div>
@@ -78,7 +81,7 @@ $rol = $roles[$id_puesto] ?? '';
             <?php endif; ?>
             <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="propietario_eliminado.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
+                    <img src="imagenes/borrar.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">
                         <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Eliminar</h5>
                     </div>
@@ -87,7 +90,7 @@ $rol = $roles[$id_puesto] ?? '';
 
             <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="activar_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
+                    <img src="imagenes/habilitar.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">
                         <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Activar</h5>
                     </div>

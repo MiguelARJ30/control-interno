@@ -84,7 +84,7 @@ height: 100%;
       
       <!-- Formulario de login -->
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="login.php" method="POST">
+        <form action="index.php" method="POST">
           <h3 class="text-center mb-4" style="color: black;">Iniciar sesión</h3>
           
           <!-- Mostrar mensaje de error si las credenciales son incorrectas -->

@@ -3,7 +3,7 @@ session_start();
 
 // Verifica si el usuario está logueado
 if (!isset($_SESSION['user'])) {
-    header('Location: login.php'); // Redirige al login si no está logueado
+    header('Location: index.php'); // Redirige al login si no está logueado
     exit();
 }
 
@@ -50,7 +50,7 @@ $rol = $roles[$id_puesto] ?? '';
     <!-- Contenedor principal para las tarjetas -->
     <div class="container mt-6" style="display: flex; aling-items: center; ">
         <div class="row">
-        <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+        <?php if ($rol == 'admin' || $rol == 'contaduria') : ?>
                 <a class="btn btn-primary" href="menu_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/propietario.png" class="card-img-top" alt="Card image" style>
                     <div class="card-body">
@@ -81,7 +81,7 @@ $rol = $roles[$id_puesto] ?? '';
                 <a class="btn btn-primary" href="menu_asignacion.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/asignacion.png" class="card-img-top" alt="Card image">
                     <div class="card-body">
-                        <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Asignar carro</h5>
+                        <h5 class="card-title" style="color: white; font-size: 24px; background-color: #472681; border-radius: 50px; width: 170px; ">Asignaciones</h5>
                     </div>
                  </a>
             <?php endif; ?>

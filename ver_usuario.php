@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: index.php');
+    exit;
+}
+$usuario = $_SESSION['user'];
 // Incluir el archivo de conexión a la base de datos
 include('conexion.php');
 

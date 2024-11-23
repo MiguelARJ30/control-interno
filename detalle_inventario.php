@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header('Location: index.php'); // Redirige al login si no está logueado
+    exit();
+}
+
+$usuario = $_SESSION['user'];
+
 include('conexion.php'); // Incluir archivo de conexión
 
 // Obtener el id_inventario de la URL
