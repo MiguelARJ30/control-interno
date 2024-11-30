@@ -52,7 +52,7 @@ $trabajadores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($trabajadores as $trabajadores): ?>
+                        <?php foreach ($trabajadores as $trabajador): ?>
                         <tr>
                             <td><?php echo htmlspecialchars($trabajador['nombre']); ?></td>
                             <td><?php echo htmlspecialchars($trabajador['direccion']); ?></td>

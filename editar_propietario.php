@@ -13,10 +13,6 @@ $error = '';
 $propietarios = [];
 
 try {
-    // Consulta con JOIN para obtener el nombre del estado
-    // $sql = "SELECT propietario.id_propietario, propietario.nombre, estado.estado 
-    //         FROM propietario 
-    //         JOIN estado ON propietario.id_estado = estado.id_estado";
     $sql = "SELECT propietario.id_propietario, propietario.nombre, estado.estado 
     FROM propietario 
     JOIN estado ON propietario.id_estado = estado.id_estado
@@ -53,7 +49,7 @@ try {
     </nav>
 
     <div class="container mt-5">
-        <div class="card shadow-lg">
+        <div class="card shadow-lg" style="border: 2px solid #472681; border-radius: 50px;">
             <div class="card-body">
                 <h5 class="card-title" style="color: #472681;">Lista de Propietarios</h5>
 
@@ -62,7 +58,7 @@ try {
                 <?php endif; ?>
 
                 <?php if (count($propietarios) > 0): ?>
-                    <table class="table table-bordered mt-3" style="text-align: center;">
+                    <table class="table table-striped mt-3" style="text-align: center;">
                         <thead class="table" style="background-color: #472681; color: white;">
                             <tr>
                                 <th>ID Propietario</th>

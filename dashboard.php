@@ -41,7 +41,7 @@ $rol = $roles[$id_puesto] ?? '';
     </style>
 </head>
 <body style="background: white">
-    <nav class="navbar navbar-light" style="background-color: #472681;">
+    <nav class="navbar navbar-light" style="background-color: #472681; width: 100%">
         <div class="container-fluid" style="display: flex; align-items: center; justify-content: center;">
             <img src="imagenes/trasla_2.png" alt="" width="160px" height="50px"></a>
         </div>

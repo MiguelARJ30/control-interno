@@ -6,5 +6,6 @@ margin: ;
 display: flex;
 align-items: center;
 justify-content: center;
-text-align: ;
+text-align: center;
+flex-direction: column;
 }

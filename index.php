@@ -79,7 +79,7 @@ height: 100%;
     <div class="row d-flex justify-content-center align-items-center h-100">
       <!-- Imagen del lado izquierdo -->
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="imagenes/trasla.png" class="img-fluid" alt="Imagen de inicio" style="width: 700px; height: 200px;">
+        <img src="imagenes/trasla.png" class="img-fluid" alt="Imagen de inicio" style="width: 70%px; height: 20%px;">
       </div>
       
       <!-- Formulario de login -->
@@ -121,7 +121,7 @@ height: 100%;
       Copyright © 2024. Todos los derechos reservados.
     </div>
     <div>
-      <a href="#" class="text-white me-4"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.facebook.com/people/Trasla/61566962580927/?mibextid=LQQJ4d" class="text-white me-4"><i class="fab fa-facebook-f"></i></a>
       <a href="#" class="text-white me-4"><i class="fab fa-twitter"></i></a>
       <a href="#" class="text-white me-4"><i class="fab fa-google"></i></a>
       <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>

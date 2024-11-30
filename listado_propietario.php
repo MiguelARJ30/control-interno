@@ -65,7 +65,7 @@ try {
                 <?php endif; ?>
 
                 <?php if (count($propietarios) > 0): ?>
-                    <table class="table table-bordered mt-2" style="text-align: center;">
+                    <table class="table table-striped mt-3" style="text-align: center;">
                         <thead class="table" style="background-color: #472681; color: white; text-aling: center;">
                             <tr>
                                 <th>#</th>
