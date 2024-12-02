@@ -50,7 +50,7 @@ $rol = $roles[$id_puesto] ?? '';
     <!-- Contenedor principal para las tarjetas -->
     <div class="container mt-6" style="display: flex; aling-items: center; ">
         <div class="row">
-        <?php if ($rol == 'admin' || $rol == 'contaduria') : ?>
+        <?php if ($rol == 'admin' || $rol == 'contaduria' || 'operativa') : ?>
                 <a class="btn btn-primary" href="menu_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/propietario.png" class="card-img-top" alt="Card image" style>
                     <div class="card-body">
@@ -95,7 +95,7 @@ $rol = $roles[$id_puesto] ?? '';
                  </a>
             <?php endif; ?>
 
-            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+            <?php if ($rol == 'admin') : ?>
                 <a class="btn btn-primary" href="menu_trabajador.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/trabajador.png" class="card-img-top" alt="Card image">
                     <div class="card-body">
@@ -104,7 +104,7 @@ $rol = $roles[$id_puesto] ?? '';
                  </a>
             <?php endif; ?>
 
-            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+            <?php if ($rol == 'admin') : ?>
                 <a class="btn btn-primary" href="menu_viajes.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/viaje.png" class="card-img-top" alt="Card image">
                     <div class="card-body">
@@ -122,7 +122,7 @@ $rol = $roles[$id_puesto] ?? '';
                  </a>
             <?php endif; ?>
 
-            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+            <?php if ($rol == 'admin') : ?>
                 <a class="btn btn-primary" href="menu_usuario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/usuario.png" class="card-img-top" alt="Card image" style="width: 220px; height: 220px; margin: 1.5rem;">
                     <div class="card-body">

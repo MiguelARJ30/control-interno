@@ -79,7 +79,7 @@ $rol = $roles[$id_puesto] ?? '';
                     </div>
                  </a>
             <?php endif; ?>
-            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+            <?php if ($rol == 'admin') : ?>
                 <a class="btn btn-primary" href="propietario_eliminado.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/borrar.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">
@@ -88,7 +88,7 @@ $rol = $roles[$id_puesto] ?? '';
                  </a>
             <?php endif; ?>
 
-            <?php if ($rol == 'admin' || $rol == 'operativa') : ?>
+            <?php if ($rol == 'admin') : ?>
                 <a class="btn btn-primary" href="activar_propietario.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/habilitar.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">

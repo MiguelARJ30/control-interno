@@ -10,8 +10,8 @@ $sqlPuestos = "SELECT id_puesto, puesto FROM puesto";
 $stmtPuestos = $pdo->query($sqlPuestos);
 $puestos = $stmtPuestos->fetchAll(PDO::FETCH_ASSOC);
 
-// Consultar los trabajadores
-$sqlTrabajadores = "SELECT id_trabajador, nombre FROM trabajador WHERE id_estado = 1;";
+// Consultar los trabajadores con estado 1
+$sqlTrabajadores = "SELECT id_trabajador, nombre FROM trabajador WHERE id_estado_trabajador = 1";
 $stmtTrabajadores = $pdo->query($sqlTrabajadores);
 $trabajadores = $stmtTrabajadores->fetchAll(PDO::FETCH_ASSOC);
 
@@ -27,30 +27,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($usuario) || empty($password) || empty($id_puesto) || empty($id_trabajador)) {
         $error = 'Todos los campos son requeridos.';
     } else {
-        // Comprobar si el usuario ya existe
-        $sql = "SELECT * FROM usuarios WHERE usuario = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$usuario]);
-        $userExists = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Validar que el trabajador seleccionado tiene estado 1
+        $sqlCheckTrabajador = "SELECT id_trabajador FROM trabajador WHERE id_trabajador = ? AND id_estado_trabajador = 1";
+        $stmtCheck = $pdo->prepare($sqlCheckTrabajador);
+        $stmtCheck->execute([$id_trabajador]);
+        $trabajadorValido = $stmtCheck->fetch(PDO::FETCH_ASSOC);
 
-        if ($userExists) {
-            $error = 'El nombre de usuario ya está en uso.';
+        if (!$trabajadorValido) {
+            $error = 'El trabajador seleccionado no es válido o ya no está disponible.';
         } else {
-            // Encriptar la contraseña
-            $password_hashed = password_hash($password, PASSWORD_DEFAULT);
+            try {
+                // Iniciar transacción
+                $pdo->beginTransaction();
 
-            // Insertar el nuevo usuario en la base de datos
-            $sql = "INSERT INTO usuarios (usuario, password, id_puesto, id_trabajador, id_estado) VALUES (?, ?, ?, ?, ?)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$usuario, $password_hashed, $id_puesto, $id_trabajador, 1]);
+                // Encriptar la contraseña
+                $password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
-            // Redirigir a una página de éxito o login después de registrar
-            header('Location: index.php');
-            exit();
+                // Insertar el nuevo usuario
+                $sqlInsertUsuario = "INSERT INTO usuarios (usuario, password, id_puesto, id_trabajador, id_estado) 
+                                     VALUES (?, ?, ?, ?, ?)";
+                $stmtInsertUsuario = $pdo->prepare($sqlInsertUsuario);
+                $stmtInsertUsuario->execute([$usuario, $password_hashed, $id_puesto, $id_trabajador, 1]);
+
+                // Actualizar el estado del trabajador a 2
+                $sqlUpdateTrabajador = "UPDATE trabajador SET id_estado_trabajador = 2 WHERE id_trabajador = ?";
+                $stmtUpdateTrabajador = $pdo->prepare($sqlUpdateTrabajador);
+                $stmtUpdateTrabajador->execute([$id_trabajador]);
+
+                // Confirmar transacción
+                $pdo->commit();
+
+                // Redirigir a la página principal después de registrar
+                header('Location: index.php');
+                exit();
+            } catch (Exception $e) {
+                $pdo->rollBack();
+                $error = "Error al registrar el usuario: " . $e->getMessage();
+            }
         }
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">

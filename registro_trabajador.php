@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Asignar automáticamente el valor de id_estado a 1 (puedes modificarlo según tu lógica)
     $id_estado = 1;  // Valor fijo para id_estado
+    $id_estado_trabajador = 1;
 
     // Validación de los campos
     if (empty($nombre)) {
@@ -79,13 +80,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Si no hay errores, insertar el trabajador en la base de datos
             if (empty($error)) {
-                $sql = "INSERT INTO trabajador (nombre, direccion, telefono, fecha_alta, correo, CURP, documento_curp, credencial, comprobante_domicilio, RFC, lineamientos, contrato, id_estado) 
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO trabajador (nombre, direccion, telefono, fecha_alta, correo, CURP, documento_curp, credencial, comprobante_domicilio, RFC, lineamientos, contrato, id_estado, id_estado_trabajador) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([
                     $nombre, $direccion, $telefono, $fecha_alta, $correo, $CURP,
                     $paths['documento_curp'], $paths['credencial'], 
-                    $paths['comprobante_domicilio'], $paths['RFC'], $paths['lineamientos'], $paths['contrato'], $id_estado
+                    $paths['comprobante_domicilio'], $paths['RFC'], $paths['lineamientos'], $paths['contrato'], $id_estado, $id_estado_trabajador
                 ]);
 
                 $success = 'Trabajador registrado exitosamente.';

@@ -54,7 +54,7 @@ $rol = $roles[$id_puesto] ?? '';
         </div>
     <div class="row">
             <!-- Tarjetas -->
-            <?php if ($rol == 'admin' || $rol == 'contaduria') : ?>
+            <?php if ($rol == 'admin' || $rol == 'contaduria' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="registro_carro.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/agregar_carro.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">
@@ -62,7 +62,7 @@ $rol = $roles[$id_puesto] ?? '';
                     </div>
                  </a>
             <?php endif; ?>
-            <?php if ($rol == 'admin' || $rol == 'contaduria') : ?>
+            <?php if ($rol == 'admin' || $rol == 'contaduria' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="listado_carros.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/carro.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">
@@ -70,7 +70,7 @@ $rol = $roles[$id_puesto] ?? '';
                     </div>
                  </a>
             <?php endif; ?>
-            <?php if ($rol == 'admin' || $rol == 'contaduria') : ?>
+            <?php if ($rol == 'admin' || $rol == 'contaduria' || $rol == 'operativa') : ?>
                 <a class="btn btn-primary" href="editar_carro.php" style="width: 300px; height: 350px; border-radius: 50px; background-color: white; border: 3px solid #472681; margin: 4rem; display: flex; justify-content: center; flex-direction: column; align-items: center;">
                     <img src="imagenes/editar_datos.png" class="card-img-top" alt="Card image" style="width: 230px; height: 230px; margin: 1rem;">
                     <div class="card-body">
